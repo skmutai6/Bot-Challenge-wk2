@@ -20,11 +20,10 @@ function BotCard({ bot, botsArmy, setBotsArmy, deleteBot }) {
     fetch(`http://localhost:8002/bots/${id}`, {
       method: "DELETE",
     })
-      .then((bots) => {
-      setBotsArmy(bots.filter(bot => bot.id !== id));
-      deleteBot(id);
-    })
-    alert("Bot Deleted Successfully");
+      .then(() => {
+        setBotsArmy(botsArmy.filter(bot => bot.id !== id));
+        alert("Bot Deleted Successfully");
+      })
   }
 
   return (
@@ -66,7 +65,7 @@ function BotCard({ bot, botsArmy, setBotsArmy, deleteBot }) {
                 className="ui mini red button"
                 onClick={() =>  handleDelete(bot.id)}
               >
-                X
+                DELETE
               </button>
             </div>
           </span>

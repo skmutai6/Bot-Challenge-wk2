@@ -4,9 +4,8 @@ import BotCollection from "./BotCollection";
 
 function BotsPage() {
   //start here with your code for step one
-  const [bots, setBots] = useState([]);
-  const [botsArmy, setBotsArmy] = useState([]);
-
+  const [bots, setBots] = useState([])
+  const [botsArmy, setBotsArmy] = useState([])
   useEffect(() => {
     fetch("http://localhost:8002/bots")
       .then(res => res.json())
@@ -15,20 +14,9 @@ function BotsPage() {
       })
   }, [])
 
-  console.log( botsArmy )
-
-  function handleDelete(id) {
-    fetch(`http://localhost:8002/bots/${id}`, {
-      method: 'DELETE',
-    })
-    .then(() => {
-    })
-
-  }
-
   return (
     <div>
-      <YourBotArmy botsArmy={botsArmy} handleDelete={handleDelete} />
+      <YourBotArmy botsArmy={botsArmy} />
       <BotCollection bots={bots} botsArmy={botsArmy} setBotsArmy={setBotsArmy} />
     </div>
   )
