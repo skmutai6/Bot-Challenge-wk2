@@ -9,12 +9,24 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot, botsArmy, setBotsArmy }) {
+function BotCard({ bot, botsArmy, setBotsArmy, deleteBot }) {
 
-  function handleAddArmy(bot) {
+  function handleAddArmy(bot) 
+  {
     setBotsArmy( [ ...botsArmy, bot] )
   }
-  
+
+  function handleDelete(id) {
+    fetch(`http://localhost:8002/bots/${id}`, {
+      method: "DELETE",
+    })
+      .then((bots) => {
+      setBotsArmy(bots.filter(bot => bot.id !== id));
+      deleteBot(id);
+    })
+    alert("Bot Deleted Successfully");
+  }
+
   return (
     <div className="ui column">
       <div
@@ -52,11 +64,9 @@ function BotCard({ bot, botsArmy, setBotsArmy }) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
-                }
+                onClick={() =>  handleDelete(bot.id)}
               >
-                x
+                X
               </button>
             </div>
           </span>
