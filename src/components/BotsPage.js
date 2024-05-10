@@ -7,7 +7,7 @@ function BotsPage() {
   const [bots, setBots] = useState([])
   const [botsArmy, setBotsArmy] = useState([])
   useEffect(() => {
-    fetch("http://localhost:8002/bots")
+    fetch("https://bot-challenge-wk2.onrender.com/bots")
       .then(res => res.json())
       .then((data) => {
           setBots(data)

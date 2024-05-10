@@ -17,7 +17,7 @@ function BotCard({ bot, botsArmy, setBotsArmy, deleteBot }) {
   }
 
   function handleDelete(id) {
-    fetch(`http://localhost:8002/bots/${id}`, {
+    fetch(`https://bot-challenge-wk2.onrender.com/bots/${id}`, {
       method: "DELETE",
     })
       .then(() => {
