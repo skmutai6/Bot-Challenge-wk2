@@ -5,7 +5,6 @@ function YourBotArmy( {botsArmy, addBot, deleteBot }) {
   //your bot army code here...
   function handleClick(bot) {
     addBot(bot)
-    
   }
 
   return (
