@@ -8,7 +8,7 @@ const botTypeClasses = {
   Witch: "icon magic",
   Captain: "icon star",
 };
-
+ 
 function BotCard({ bot, botsArmy, setBotsArmy, deleteBot }) {
 
   function handleAddArmy(bot) 
