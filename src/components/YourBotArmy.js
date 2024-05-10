@@ -7,6 +7,7 @@ function YourBotArmy( {botsArmy, addBot, deleteBot }) {
     addBot(bot)
   }
 
+
   return (
     <div className="ui segment inverted olive bot-army">
       <div className="ui five column grid">
